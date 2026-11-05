@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanted Board — TX247 Galactic Coalition</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/nav.css">
+</head>
+<body>
+
+<header class="tx-nav" id="txNav">
+ <div class="tx-nav-in">
+  <a class="tx-brand" href="index.html"><img src="img/logo.jpg" alt="TX247 logo"><span><span class="tx-bt">TX247</span><small>Galactic Coalition</small></span></a>
+  <button class="tx-burger" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="tx-menu" aria-label="Site">
+   <a class="tx-link" href="index.html">Home</a>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Play <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="how-it-works.html">How It Works<small>Join, worlds, the Living Sky</small></a>
+     <a href="rules.html">Rules<small>PvP law, economy, conduct</small></a>
+     <a href="briefing/">Briefing<small>Comms audio terminal</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">World <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="factions.html">Factions<small>The four powers</small></a>
+     <a href="ships.html">Ships<small>Supporter commissions</small></a>
+     <a href="lore.html">Lore<small>The story so far</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn grp-on" type="button" aria-haspopup="true" aria-expanded="false">Boards <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a class="on" aria-current="page" href="bounties.html">Wanted Board<small>Who the Coalition hunts</small></a>
+     <a href="roster.html">Crew Roster<small>Linked members · staff</small></a>
+    </div></div>
+   <div class="tx-dd"><button class="tx-dd-btn" type="button" aria-haspopup="true" aria-expanded="false">Support <span class="tx-caret" aria-hidden="true">▾</span></button>
+    <div class="tx-dd-menu">
+     <a href="shop.html">Support Packs<small>Space Credits, thank-you gifts</small></a>
+     <a href="sponsor.html">Sponsor<small>Membership, from $9.99/mo</small></a>
+     <a href="account.html">Your Account<small>Rank, faction, tier</small></a>
+    </div></div>
+   <span class="tx-actions">
+    <a class="tx-btn discord-login" href="how-it-works.html#website-accounts">Login with Discord</a>
+    <a class="tx-btn tx-btn-join" href="https://discord.gg/t7ATgXxg2k">Join Discord</a>
+   </span>
+  </nav>
+ </div>
+ <noscript><style>.tx-menu{display:flex!important}.tx-dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:block}.tx-burger{display:none!important}</style></noscript>
+</header>
+
+<div class="pagehero"><div class="wrap">
+  <div class="kickerline">GDC Port Authority · The Board</div>
+  <h1>WANTED BOARD</h1>
+  <p>Every name the Coalition has a price on, posted in the open. Crimes post the bounty; hunters collect it; the board remembers. The same board flies in game — <b>!tx247 bounties</b> shows it from the cockpit.</p>
+</div></div>
+
+<section><div class="wrap">
+  <div class="sec-head">
+    <div class="kickerline">Posted in the Open</div>
+    <h2>Who's wanted</h2>
+    <p>The price on a pilot is their fine. Settle it in game with <b>!tx247 payfine</b> — or a hunter settles it the hard way. A wanted pilot who goes dark for <b>fourteen straight days</b> with the fine unpaid is written off the board — but the record of how they ran is kept, and their escapes stay on file for good.</p>
+  </div>
+  <div id="board">
+    <div class="step" style="text-align:center;padding:40px 24px">
+      <h3>No pilots wanted. The sky is lawful — for now.</h3>
+      <p>The price on a pilot is their fine. Settle it: <b>!tx247 payfine</b></p>
+    </div>
+  </div>
+  <p class="note" id="board-stamp">Board as of 2026-11-04T06:51:41Z (UTC)</p>
+  <div class="grid2" style="margin-top:16px">
+    <div class="step"><h3>🎯 For hunters</h3><p>The board is the contract list. A name appears the moment a bounty posts — <b>5M SC, stacking to 25M</b> — with their wanted stars and every escape on their record beside the price. Collect by bringing the pilot down lawfully: the bounty pays out through your MailBox, settleable with <b>!tx247 claim</b>. When a contract goes live on a name, the board marks it — the prize, the window, and how many hunters are already on it.</p></div>
+    <div class="step"><h3>⚖️ If your name is up here</h3><p>Your bounty is your fine, and it's yours to end: pay it with <b>!tx247 payfine</b> and your stars, your warrant and your name on this board clear on the spot. Run, and every escape is recorded next to the crime — the board does not forget how you ran. The only other way off is absence: fourteen straight days dark with the fine unpaid, and the Coalition writes the debt off. Your escape record stays.</p></div>
+  </div>
+</div></section>
+
+<div class="earthband"></div>
+<footer><div class="wrap foot">
+  <div>© 2026 TX247 Galactic Coalition · Established 2013. A fan-run community server.</div>
+  <div>Not affiliated with Keen Software House. Space Engineers is a trademark of Keen Software House.</div>
+</div></footer>
+<script src="js/auth-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  var board = document.getElementById('board');
+  var stamp = document.getElementById('board-stamp');
+
+  function fmtSc(n) {
+    var v = Number(n);
+    if (!isFinite(v)) return String(n);
+    return v.toLocaleString('en-US') + ' SC';
+  }
+  function fmtWindow(sec) {
+    var s = Math.max(0, Math.floor(Number(sec) || 0));
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+    if (h > 0) return h + 'h ' + m + 'm left';
+    if (m > 0) return m + 'm ' + r + 's left';
+    return r + 's left';
+  }
+  function pick(row, keys) {
+    for (var i = 0; i < keys.length; i++) {
+      if (row[keys[i]] !== undefined && row[keys[i]] !== null) return row[keys[i]];
+    }
+    return undefined;
+  }
+  function cell(text) {
+    var td = document.createElement('td');
+    td.textContent = text;
+    return td;
+  }
+
+  fetch('bounties-snapshot.json', { cache: 'no-store' })
+    .then(function (res) {
+      if (!res.ok) throw new Error('snapshot unavailable');
+      return res.json();
+    })
+    .then(function (data) {
+      var rows = (data && Array.isArray(data.wanted)) ? data.wanted : [];
+      if (data && data.generatedUtc) {
+        stamp.textContent = 'Board as of ' + data.generatedUtc + ' (UTC)';
+      }
+      if (!rows.length) return; // empty board: the posted empty text already stands
+
+      var table = document.createElement('table');
+      table.className = 'ptable';
+      var thead = document.createElement('thead');
+      var htr = document.createElement('tr');
+      ['Stars', 'Pilot', 'Bounty', 'Escapes', ''].forEach(function (h) {
+        var th = document.createElement('th');
+        th.textContent = h;
+        htr.appendChild(th);
+      });
+      thead.appendChild(htr);
+      table.appendChild(thead);
+
+      var tbody = document.createElement('tbody');
+      rows.forEach(function (row) {
+        var tr = document.createElement('tr');
+        var stars = Number(pick(row, ['stars', 'Stars'])) || 0;
+        stars = Math.max(0, Math.min(5, Math.floor(stars)));
+        var starText = '';
+        for (var i = 0; i < stars; i++) starText += '★';
+        tr.appendChild(cell(starText || '—'));
+        tr.appendChild(cell(String(pick(row, ['name', 'Name', 'displayName', 'pilot']) || 'Unknown pilot')));
+        var bountyTd = cell(fmtSc(pick(row, ['bounty', 'Bounty', 'bountySc', 'amount']) || 0));
+        bountyTd.className = 'price';
+        tr.appendChild(bountyTd);
+        tr.appendChild(cell(String(pick(row, ['escapes', 'Escapes', 'escapeCount']) || 0)));
+
+        var contractTd = document.createElement('td');
+        var c = pick(row, ['contract', 'Contract']);
+        if (c) {
+          var parts = ['⚠ CONTRACT LIVE'];
+          var prize = pick(c, ['prize', 'Prize']);
+          if (prize !== undefined) parts.push('prize ' + fmtSc(prize));
+          var left = pick(c, ['windowSecondsLeft', 'WindowSecondsLeft']);
+          if (left !== undefined) parts.push(fmtWindow(left));
+          var acc = pick(c, ['acceptors', 'Acceptors']);
+          if (acc !== undefined) parts.push(String(acc) + ' on the hunt');
+          contractTd.textContent = parts.join(' · ');
+          contractTd.style.color = 'var(--red)';
+          contractTd.style.fontWeight = '700';
+        }
+        tr.appendChild(contractTd);
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+
+      board.innerHTML = '';
+      board.appendChild(table);
+    })
+    .catch(function () {
+      // Snapshot unreachable: the posted empty board already stands. No error shown.
+    });
+})();
+</script>
+</body>
+</html>
